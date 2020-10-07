@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		E4CCE984252DDC370047414A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE983252DDC370047414A /* AppDelegate.swift */; };
 		E4CCE986252DDC370047414A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE985252DDC370047414A /* SceneDelegate.swift */; };
-		E4CCE988252DDC370047414A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE987252DDC370047414A /* ViewController.swift */; };
 		E4CCE98B252DDC370047414A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4CCE989252DDC370047414A /* Main.storyboard */; };
 		E4CCE98D252DDC390047414A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CCE98C252DDC390047414A /* Assets.xcassets */; };
 		E4CCE990252DDC390047414A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4CCE98E252DDC390047414A /* LaunchScreen.storyboard */; };
 		E4CCE99B252DDC390047414A /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE99A252DDC390047414A /* BaluchonTests.swift */; };
 		E4CCE9A6252DDC390047414A /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE9A5252DDC390047414A /* BaluchonUITests.swift */; };
+		E4CCE9BE252DEA360047414A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE9BD252DEA360047414A /* WeatherViewController.swift */; };
+		E4CCE9C6252DEA4E0047414A /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE9C5252DEA4E0047414A /* TranslationViewController.swift */; };
+		E4CCE9CB252DEA720047414A /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCE9CA252DEA720047414A /* ExchangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 		E4CCE980252DDC370047414A /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CCE983252DDC370047414A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4CCE985252DDC370047414A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4CCE987252DDC370047414A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E4CCE98A252DDC370047414A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4CCE98C252DDC390047414A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4CCE98F252DDC390047414A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		E4CCE9A1252DDC390047414A /* BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CCE9A5252DDC390047414A /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
 		E4CCE9A7252DDC390047414A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4CCE9BD252DEA360047414A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E4CCE9C5252DEA4E0047414A /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		E4CCE9CA252DEA720047414A /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,10 @@
 		E4CCE982252DDC370047414A /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				E4CCE983252DDC370047414A /* AppDelegate.swift */,
-				E4CCE985252DDC370047414A /* SceneDelegate.swift */,
-				E4CCE987252DDC370047414A /* ViewController.swift */,
-				E4CCE989252DDC370047414A /* Main.storyboard */,
-				E4CCE98C252DDC390047414A /* Assets.xcassets */,
-				E4CCE98E252DDC390047414A /* LaunchScreen.storyboard */,
-				E4CCE991252DDC390047414A /* Info.plist */,
+				E4CCE9B6252DDCBF0047414A /* Model */,
+				E4CCE9B8252DDCD10047414A /* Controller */,
+				E4CCE9B7252DDCC90047414A /* View */,
+				E4CCE9B9252DDCDB0047414A /* Supporting Files */,
 			);
 			path = Baluchon;
 			sourceTree = "<group>";
@@ -126,6 +127,43 @@
 				E4CCE9A7252DDC390047414A /* Info.plist */,
 			);
 			path = BaluchonUITests;
+			sourceTree = "<group>";
+		};
+		E4CCE9B6252DDCBF0047414A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E4CCE9B7252DDCC90047414A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4CCE989252DDC370047414A /* Main.storyboard */,
+				E4CCE98E252DDC390047414A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4CCE9B8252DDCD10047414A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4CCE9BD252DEA360047414A /* WeatherViewController.swift */,
+				E4CCE9C5252DEA4E0047414A /* TranslationViewController.swift */,
+				E4CCE9CA252DEA720047414A /* ExchangeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E4CCE9B9252DDCDB0047414A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4CCE983252DDC370047414A /* AppDelegate.swift */,
+				E4CCE985252DDC370047414A /* SceneDelegate.swift */,
+				E4CCE98C252DDC390047414A /* Assets.xcassets */,
+				E4CCE991252DDC390047414A /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4CCE988252DDC370047414A /* ViewController.swift in Sources */,
+				E4CCE9C6252DEA4E0047414A /* TranslationViewController.swift in Sources */,
+				E4CCE9CB252DEA720047414A /* ExchangeViewController.swift in Sources */,
+				E4CCE9BE252DEA360047414A /* WeatherViewController.swift in Sources */,
 				E4CCE984252DDC370047414A /* AppDelegate.swift in Sources */,
 				E4CCE986252DDC370047414A /* SceneDelegate.swift in Sources */,
 			);
