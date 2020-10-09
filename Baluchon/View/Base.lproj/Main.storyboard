@@ -27,7 +27,7 @@
         <!--Item-->
         <scene sceneID="YhT-yH-LDl">
             <objects>
-                <viewController id="fX0-qi-isG" customClass="ExchangeViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fX0-qi-isG" customClass="WeatherViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2zh-bY-Kyd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--Item-->
         <scene sceneID="6Qf-bt-Nlr">
             <objects>
-                <viewController id="erK-gI-vO7" customClass="WeatherViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="erK-gI-vO7" customClass="CurrencyViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kB4-fg-YrY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +107,9 @@
                                         <rect key="frame" x="0.0" y="502" width="398" height="251"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Convertir € -&gt; $"/>
+                                        <connections>
+                                            <action selector="convertEuroToDollar:" destination="erK-gI-vO7" eventType="touchUpInside" id="aKp-lL-mBY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -123,6 +126,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="ShO-1a-dw0"/>
                     <navigationItem key="navigationItem" id="wpT-dW-ATv"/>
+                    <connections>
+                        <outlet property="dollarLabel" destination="ESU-ZJ-ZVq" id="lA3-hp-xfi"/>
+                        <outlet property="euroTextField" destination="a5R-Ml-J9P" id="5tb-za-pQt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ojd-Wo-g5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
