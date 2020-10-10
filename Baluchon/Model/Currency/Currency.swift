@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Currency
 struct Currency: Codable {
     let rates: [String: Double]
 }
