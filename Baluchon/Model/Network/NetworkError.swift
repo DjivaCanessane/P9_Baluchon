@@ -14,6 +14,7 @@ enum NetworkError: Error {
     case wrongStatusCode
     case canNotDecode
     case wrongParsing
+    case invalidURL
 
     var msg: String {
         switch self {
@@ -29,6 +30,8 @@ enum NetworkError: Error {
             return "Error when decoding .json."
         case .wrongParsing:
             return "Error when reading decoded data."
+        case .invalidURL:
+            return "URL given is invalid."
         }
     }
 }

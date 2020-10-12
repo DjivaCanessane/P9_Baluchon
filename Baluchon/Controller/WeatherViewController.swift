@@ -18,7 +18,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var newYorkTemperature: UILabel!
     @IBOutlet weak var newYorkDescription: UILabel!
 
-    private let weatherNetworkManager = WeatherNetworkManager()
+    private let weatherNetworkManager = ServiceContainer.weatherNetworkManager
     private let alertManager = ServiceContainer.alertManager
 
     override func viewWillAppear(_ animated: Bool) {

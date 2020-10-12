@@ -9,21 +9,30 @@ import UIKit
 
 class TranslationViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet private weak var textToTranslateView: UITextView!
+    @IBOutlet private  weak var translatedTextView: UITextView!
 
-        // Do any additional setup after loading the view.
+    private let alertManager = ServiceContainer.alertManager
+    private let translationNetworkManager = ServiceContainer.translationNetworkManager
+
+    @IBAction func translate(_ sender: UIButton) {
+        let textToTranslate: String = textToTranslateView.text
+        translationNetworkManager.setTextToTranslate(text: textToTranslate)
+
+        translationNetworkManager.getTranslation { result in
+            switch result {
+            case .success(let translatedText):
+                self.translatedTextView.text = translatedText
+            case .failure(let error):
+                self.alertManager.showErrorAlert(
+                    title: "Error",
+                    message: error.msg,
+                    viewController: self)
+            }
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        textToTranslateView.resignFirstResponder()
     }
-    */
-
 }

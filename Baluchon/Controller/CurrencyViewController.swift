@@ -68,4 +68,7 @@ class CurrencyViewController: UIViewController {
         }
     }
 
+    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        euroTextField.resignFirstResponder()
+    }
 }
