@@ -29,7 +29,8 @@ class WeatherNetworkManager {
                 self.getWeather(city: city) { result in
                     switch result {
                     // In case of success we append weather to weathers
-                    case .success(let weatherMissingIconData): self.getIconData(weather: weatherMissingIconData) { result in
+                    case .success(let weatherMissingIconData):
+                        self.getIconData(weather: weatherMissingIconData) { result in
                         switch result {
                         // Append complete to weathers dictionnary
                         case .success(let weatherWithAllElements): weathers[city] = weatherWithAllElements
@@ -96,19 +97,19 @@ class WeatherNetworkManager {
         guard let weatherElement = weatherData.weather.first else {
             return callback(.failure(.wrongParsing))
         }
-        let description: String = weatherElement.weatherDescription
-        let icon: String = weatherElement.icon
+        let description: String = weatherElement.description
+        let iconString: String = weatherElement.icon
         let temperature: Double = weatherData.main.temp
 
         let weather =
-            Weather(city: city, description: description, temperature: temperature, icon: icon)
+            Weather(city: city, description: description, temperature: temperature, iconString: iconString)
         callback(.success(weather))
     }
 
     /// Get icon data from icon string of weather object
     private func getIconData(weather: Weather, callback:@escaping (Result<Weather, NetworkError>) -> Void) {
        let iconUrl = URL(
-        string: "http://openweathermap.org/img/wn/\(weather.icon)@2x.png")!
+        string: "http://openweathermap.org/img/wn/\(weather.iconString)@2x.png")!
 
         // Try to get data from the weatherUrl
         weatherNetworkService.getNetworkResponse(with: iconUrl) { result in

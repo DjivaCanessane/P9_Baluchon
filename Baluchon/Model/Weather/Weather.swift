@@ -11,6 +11,6 @@ struct Weather {
     let city: Cities
     let description: String
     let temperature: Double
-    let icon: String
+    let iconString: String
     var iconData: Data?
 }
