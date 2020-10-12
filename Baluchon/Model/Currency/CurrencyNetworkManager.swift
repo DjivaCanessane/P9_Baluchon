@@ -1,4 +1,4 @@
-//
+//swiftlint:disable vertical_whitespace
 //  ExchangeRateService.swift
 //  Baluchon
 //
@@ -17,8 +17,8 @@ class CurrencyNetworkManager {
     init(currencySession: URLSession = URLSession(configuration: .default)) {
         self.currencySession = currencySession
     }
-    
-    
+
+
 
     // MARK: Methods
 
@@ -27,10 +27,10 @@ class CurrencyNetworkManager {
         // Try to get data from the currencyUrl
         currencyNetworkService.getNetworkResponse(with: currencyUrl) { result in
             switch result {
-            
+
             // In case of failure, we pass the error to CurrencyViewController callback
             case .failure(let error): callback(.failure(error))
-                
+
             // In case of success, we decode the data, then we pass the rate to CurrencyViewController callback
             case .success(let data):
 
@@ -52,17 +52,17 @@ class CurrencyNetworkManager {
         }
     }
 
-    
+
 
     // MARK: - Private
-    
+
     // MARK: Properties
 
     private var currencySession: URLSession
     private var task: URLSessionDataTask?
-    
+
     private let currencyNetworkService: NetworkService = NetworkService()
     private let currencyUrl =
-        URL(string: "http://data.fixer.io/api/latest?access_key=8a723bc2a0abfe44b592ecaf54ae89f9&base=EUR&symbols=USD")!
-    
+        URL(string: "http://data.fixer.io/api/latest?access_key=\(CURRENCY_KEY)&base=EUR&symbols=USD")!
+
 }

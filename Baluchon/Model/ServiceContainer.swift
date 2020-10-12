@@ -9,4 +9,5 @@ import Foundation
 
 class ServiceContainer {
     static let currencyNetworkManager = CurrencyNetworkManager()
+    static let alertManager = AlertManager()
 }

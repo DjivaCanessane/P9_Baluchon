@@ -1,4 +1,4 @@
-//swiftlint disable: vertical_whitespace
+//swiftlint:disable vertical_whitespace
 //  ExchangeViewController.swift
 //  Baluchon
 //
@@ -17,11 +17,10 @@ class CurrencyViewController: UIViewController {
     // MARK: Properties
 
     private let currencyNetworkManager = ServiceContainer.currencyNetworkManager
-    private let alertVC = AlertVC()
+    private let alertManager = ServiceContainer.alertManager
 
 
-
-    // MARK: Outlets
+    // MARK: IBOutlets
 
     @IBOutlet private weak var euroTextField: UITextField!
     @IBOutlet private weak var dollarLabel: UILabel!
@@ -35,9 +34,9 @@ class CurrencyViewController: UIViewController {
 
         // Unwrap euroTextField text, else we show an error alert
         guard let euroAmountString: String = euroTextField.text else {
-            return alertVC.showErrorAlert(
-                title: "Entrez un montant",
-                message: "Vous n'avez insérer aucun montant à convertir, veuillez en saisir une.",
+            return alertManager.showErrorAlert(
+                title: "Insert an amount",
+                message: "Please insert an amount with the numeric pad.",
                 viewController: self
             )
         }
@@ -51,8 +50,8 @@ class CurrencyViewController: UIViewController {
 
                 // Convert String to Double, else we show an alert error
                 guard let euroAmountDouble = Double(euroAmountString) else {
-                    return self.alertVC.showErrorAlert(title: "Erreur",
-                    message: "Impossible de convertir le texte en nombre.", viewController: self)
+                    return self.alertManager.showErrorAlert(title: "Error",
+                    message: "Can not convert string into double.", viewController: self)
                 }
 
                 // Calculate dollar amount from euro amount
@@ -63,7 +62,7 @@ class CurrencyViewController: UIViewController {
 
             // Case of failure, we show an error alert
             case .failure(let error):
-                self.alertVC.showErrorAlert(title: "Erreur",
+                self.alertManager.showErrorAlert(title: "Error",
                     message: error.msg, viewController: self)
             }
         }

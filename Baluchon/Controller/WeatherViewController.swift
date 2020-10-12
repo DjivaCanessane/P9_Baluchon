@@ -9,20 +9,58 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var savignyIcon: UIImageView!
+    @IBOutlet weak var savignyTemperature: UILabel!
+    @IBOutlet weak var savignyDescription: UILabel!
 
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var newYorkIcon: UIImageView!
+    @IBOutlet weak var newYorkTemperature: UILabel!
+    @IBOutlet weak var newYorkDescription: UILabel!
+
+    private let weatherNetworkManager = WeatherNetworkManager()
+    private let alertManager = ServiceContainer.alertManager
+
+    override func viewWillAppear(_ animated: Bool) {
+        weatherNetworkManager.getWeathers { result in
+            switch result {
+
+            case .success(let weathers):
+                guard let savignyWeather: Weather = weathers[.savignyLeTemple] else {
+                    return self.alertManager.showErrorAlert(title: "Unable to unwrap",
+                        message:"Missing Savigny le temple weather data.", viewController: self)
+                }
+                guard let newYorkWeather: Weather = weathers[.newYork] else {
+                    return self.alertManager.showErrorAlert(title: "Error",
+                        message:"Missing New York weather data.", viewController: self)
+                }
+                self.affectValuesToUI(savignyWeather: savignyWeather, newYorkWeather: newYorkWeather)
+            case .failure(let error):
+                self.alertManager.showErrorAlert(
+                    title: "Error",
+                    message: error.msg,
+                    viewController: self)
+            }
+        }
     }
 
-    /*
-    // MARK: - Navigation
+    private func affectValuesToUI(savignyWeather: Weather, newYorkWeather: Weather) {
+        guard let savignyIconData = savignyWeather.iconData else {
+           return alertManager.showErrorAlert(title: "Error",
+                message: "Invalid image data for Savigny le temple weather.", viewController: self)
+        }
+        let iconImageSavigny = UIImage(data: savignyIconData)
+        savignyIcon.image = iconImageSavigny
+        savignyTemperature.text = "\(savignyWeather.temperature)"
+        savignyDescription.text = savignyWeather.description
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let newYorkIconData = newYorkWeather.iconData else {
+           return alertManager.showErrorAlert(title: "Error",
+                message: "Invalid image data for New York weather.", viewController: self)
+        }
+        let iconImagenewYork = UIImage(data: newYorkIconData)
+        newYorkIcon.image = iconImagenewYork
+        newYorkTemperature.text = "\(newYorkWeather.temperature)"
+        newYorkDescription.text = newYorkWeather.description
     }
-    */
-
 }
