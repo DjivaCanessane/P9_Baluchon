@@ -18,23 +18,27 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var newYorkTemperature: UILabel!
     @IBOutlet weak var newYorkDescription: UILabel!
 
-    private let weatherNetworkManager = ServiceContainer.weatherNetworkManager
+    private let savignyWeatherNetworkManager = ServiceContainer.savignyWeatherNetworkManager
+    private let newYorkWeatherNetworkManager = ServiceContainer.newYorkWeatherNetworkManager
     private let alertManager = ServiceContainer.alertManager
 
     override func viewWillAppear(_ animated: Bool) {
-        weatherNetworkManager.getWeathers { result in
+        savignyWeatherNetworkManager.getWeather(city: .savignyLeTemple) { (result) in
             switch result {
+            case .success(let weather):
+                self.displaySavignyWeather(weather: weather)
+            case .failure(let error):
+                self.alertManager.showErrorAlert(
+                    title: "Error",
+                    message: error.msg,
+                    viewController: self)
+            }
+        }
 
-            case .success(let weathers):
-                guard let savignyWeather: Weather = weathers[.savignyLeTemple] else {
-                    return self.alertManager.showErrorAlert(title: "Unable to unwrap",
-                        message:"Missing Savigny le temple weather data.", viewController: self)
-                }
-                guard let newYorkWeather: Weather = weathers[.newYork] else {
-                    return self.alertManager.showErrorAlert(title: "Error",
-                        message:"Missing New York weather data.", viewController: self)
-                }
-                self.affectValuesToUI(savignyWeather: savignyWeather, newYorkWeather: newYorkWeather)
+        newYorkWeatherNetworkManager.getWeather(city: .newYork) { (result) in
+            switch result {
+            case .success(let weather):
+                self.displayNewYorkWeather(weather: weather)
             case .failure(let error):
                 self.alertManager.showErrorAlert(
                     title: "Error",
@@ -44,23 +48,27 @@ class WeatherViewController: UIViewController {
         }
     }
 
-    private func affectValuesToUI(savignyWeather: Weather, newYorkWeather: Weather) {
-        guard let savignyIconData = savignyWeather.iconData else {
-           return alertManager.showErrorAlert(title: "Error",
-                message: "Invalid image data for Savigny le temple weather.", viewController: self)
-        }
-        let iconImageSavigny = UIImage(data: savignyIconData)
-        savignyIcon.image = iconImageSavigny
-        savignyTemperature.text = "\(savignyWeather.temperature)"
-        savignyDescription.text = savignyWeather.description
-
-        guard let newYorkIconData = newYorkWeather.iconData else {
+    private func displayNewYorkWeather(weather: Weather) {
+        guard let newYorkIconData = weather.iconData else {
            return alertManager.showErrorAlert(title: "Error",
                 message: "Invalid image data for New York weather.", viewController: self)
         }
         let iconImagenewYork = UIImage(data: newYorkIconData)
         newYorkIcon.image = iconImagenewYork
-        newYorkTemperature.text = "\(newYorkWeather.temperature)"
-        newYorkDescription.text = newYorkWeather.description
+        newYorkTemperature.text = "\(Int(round(weather.temperature))) °C"
+        newYorkDescription.text = weather.description
+    }
+
+    private func displaySavignyWeather(weather: Weather) {
+        guard let savignyIconData = weather.iconData else {
+           return alertManager.showErrorAlert(title: "Error",
+                message: "Invalid image data for Savigny le temple weather.", viewController: self)
+        }
+        let iconImageSavigny = UIImage(data: savignyIconData)
+        savignyIcon.image = iconImageSavigny
+        savignyTemperature.text = "\(Int(round(weather.temperature))) °C"
+        savignyDescription.text = weather.description
+
+
     }
 }

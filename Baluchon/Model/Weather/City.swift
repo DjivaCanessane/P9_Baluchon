@@ -1,5 +1,5 @@
 //
-//  Cities.swift
+//  City.swift
 //  Baluchon
 //
 //  Created by Samo Mpkamou on 11/10/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Cities: CaseIterable {
+enum City: CaseIterable {
     case newYork
     case savignyLeTemple
 

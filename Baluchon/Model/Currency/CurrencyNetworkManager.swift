@@ -36,7 +36,7 @@ class CurrencyNetworkManager {
 
                 /* Decode the data according to type Currency,
                 if not we throw an error via the callback to CurrencyViewController */
-                guard let decodedData = try? JSONDecoder().decode(Currency.self, from: data) else {
+                guard let decodedData = try? JSONDecoder().decode(CurrencyDataStruct.self, from: data) else {
                     return callback(.failure(.canNotDecode))
                 }
 
