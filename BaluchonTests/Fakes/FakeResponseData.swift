@@ -6,19 +6,28 @@
 //
 
 import Foundation
+@testable import Baluchon
 
 class FakeResponseData {
 
     // MARK: - Data
-    static func generateCorrrectData(for ressource: String) -> Data? {
+    static func generateData(for ressource: String) -> Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: ressource, withExtension: "json")!
         return try? Data(contentsOf: url)
     }
 
-    static let quoteIncorrectData = "erreur".data(using: .utf8)!
+    static let incorrectData = "erreur".data(using: .utf8)!
 
     static let imageData = "image".data(using: .utf8)!
+
+    static let weather = Weather(
+        city: .savignyLeTemple,
+        description: "broken clouds",
+        temperature: 13.37,
+        iconString: "04d",
+        iconData: nil
+    )
 
     // MARK: - Response
     static let responseOK = HTTPURLResponse(
@@ -28,7 +37,6 @@ class FakeResponseData {
     static let responseKO = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
-
 
     // MARK: - Error
     class FakeError: Error {}

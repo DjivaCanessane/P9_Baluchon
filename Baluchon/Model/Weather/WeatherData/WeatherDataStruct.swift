@@ -13,12 +13,10 @@ struct WeatherDataStruct: Codable {
     let main: Main
 }
 
-
 // MARK: - Main
 struct Main: Codable {
     let temp: Double
 }
-
 
 // MARK: - WeatherElement
 struct WeatherElement: Codable {

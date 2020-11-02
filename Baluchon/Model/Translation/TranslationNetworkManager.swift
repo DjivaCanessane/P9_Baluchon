@@ -14,12 +14,9 @@ class TranslationNetworkManager {
     // MARK: Inits
 
     // This init will permits to inject dependency for testing this class and send text to translate
-    init(textToTranslate: String = "", translationSession: URLSession = URLSession(configuration: .default)) {
-        self.translationSession = translationSession
-        self.textToTranslate = textToTranslate
+    init(translationNetworkService: NetworkService = NetworkService()) {
+        self.translationNetworkService = translationNetworkService
     }
-
-
 
     // MARK: Methods
 
@@ -27,12 +24,15 @@ class TranslationNetworkManager {
         textToTranslate = text
     }
 
+    func getTextToTranslate() -> String {
+        return self.textToTranslate
+    }
+
     /// Returns translated text from french to english via the callback
     func getTranslation(callback: @escaping (Result<String, NetworkError>) -> Void) {
 
-        guard let translationUrl = makeTransalationUrl() else {
-            return callback(.failure(.invalidURL))
-        }
+        let translationUrl = makeTranslationUrl()
+
         // Try to get data from the translationUrl
         translationNetworkService.getNetworkResponse(with: translationUrl) { result in
             switch result {
@@ -60,25 +60,26 @@ class TranslationNetworkManager {
             }
         }
     }
-
-
-
     // MARK: - Private
 
     // MARK: Methods
 
-    private func makeTransalationUrl() -> URL? {
+    private func makeTranslationUrl() -> URL {
+        let rawURL = String(
+            format: "https://translation.googleapis.com/language/translate/v2?source=fr&target=en&format=text&key=%@",
+            Constants.Keys.translationKey
+        )
+
         var translationUrl = URLComponents(
-            string: "https://translation.googleapis.com/language/translate/v2?source=fr&target=en&format=text&key=\(TRANSLATION_KEY)")!
+            string: rawURL
+        )!
         translationUrl.queryItems?.append(URLQueryItem(name: "q", value: textToTranslate))
-        return translationUrl.url
+        return translationUrl.url!
     }
+
     // MARK: Properties
 
-    private var translationSession: URLSession
-    private var task: URLSessionDataTask?
-
-    private let translationNetworkService: NetworkService = NetworkService()
+    private var translationNetworkService: NetworkService = NetworkService()
     private var textToTranslate: String = ""
 
 }

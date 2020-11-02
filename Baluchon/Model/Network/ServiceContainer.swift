@@ -9,8 +9,8 @@ import Foundation
 
 class ServiceContainer {
     static let currencyNetworkManager = CurrencyNetworkManager()
-    static let savignyWeatherNetworkManager = WeatherNetworkManager()
-    static let newYorkWeatherNetworkManager = WeatherNetworkManager()
+    static let weatherNetworkManager = WeatherNetworkManager()
+    static let weatherIconNetworkManager = WeatherIconNetworkManager()
     static let translationNetworkManager = TranslationNetworkManager()
     static let alertManager = AlertManager()
 }

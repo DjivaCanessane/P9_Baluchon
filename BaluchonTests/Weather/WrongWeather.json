@@ -13,7 +13,7 @@
     ],
     "base": "stations",
     "main": {
-        "temp": 13.37,
+        "temp": "wrong",
         "feels_like": 9.28,
         "temp_min": 13,
         "temp_max": 13.89,
@@ -38,7 +38,6 @@
     },
     "timezone": 7200,
     "id": 6443853,
-    "name": "Savigny-le-Temple",
+    
     "cod": 200
 }
-

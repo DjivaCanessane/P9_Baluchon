@@ -3,13 +3,13 @@
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Translate-->
         <scene sceneID="XOH-uv-U3C">
             <objects>
                 <viewController id="gSE-ew-z3A" customClass="TranslationViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <outletCollection property="gestureRecognizers" destination="Ky7-As-krs" appends="YES" id="2vf-bY-nar"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cip-Qs-oBb"/>
+                    <tabBarItem key="tabBarItem" title="Translate" selectedImage="arrow.up.right.and.arrow.down.left.rectangle.fill" catalog="system" id="cip-Qs-oBb"/>
                     <connections>
                         <outlet property="textToTranslateView" destination="hzd-X3-6Cd" id="NVy-TM-tlW"/>
                         <outlet property="translatedTextView" destination="3GG-jw-ffq" id="ajC-Ee-can"/>
@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="723.1884057971015" y="-1291.7410714285713"/>
         </scene>
-        <!--Item-->
+        <!--Weater-->
         <scene sceneID="YhT-yH-LDl">
             <objects>
                 <viewController id="fX0-qi-isG" customClass="WeatherViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,7 +186,7 @@
                             <constraint firstItem="jAT-ps-UZh" firstAttribute="trailing" secondItem="ASD-mn-R1X" secondAttribute="trailing" constant="16" id="oa9-pI-Kc3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="llm-de-50j"/>
+                    <tabBarItem key="tabBarItem" title="Weater" selectedImage="cloud.sun.fill" catalog="system" id="llm-de-50j"/>
                     <connections>
                         <outlet property="newYorkDescription" destination="prl-3D-Hka" id="CaX-AA-4ve"/>
                         <outlet property="newYorkIcon" destination="Ttu-Ub-q01" id="hTy-eF-WWg"/>
@@ -238,7 +238,7 @@
             </objects>
             <point key="canvasLocation" x="-422" y="71"/>
         </scene>
-        <!--Item-->
+        <!--Currency-->
         <scene sceneID="6Qf-bt-Nlr">
             <objects>
                 <viewController id="erK-gI-vO7" customClass="CurrencyViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,7 +308,7 @@
                             <outletCollection property="gestureRecognizers" destination="AFV-au-Ggt" appends="YES" id="lga-vp-VRf"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ShO-1a-dw0"/>
+                    <tabBarItem key="tabBarItem" title="Currency" selectedImage="dollarsign.circle.fill" catalog="system" id="ShO-1a-dw0"/>
                     <navigationItem key="navigationItem" id="wpT-dW-ATv"/>
                     <connections>
                         <outlet property="dollarLabel" destination="ESU-ZJ-ZVq" id="lA3-hp-xfi"/>
@@ -326,6 +326,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.right.and.arrow.down.left.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="cloud.sun.fill" catalog="system" width="128" height="93"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

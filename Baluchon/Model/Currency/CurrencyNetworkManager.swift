@@ -1,4 +1,3 @@
-//swiftlint:disable vertical_whitespace
 //  ExchangeRateService.swift
 //  Baluchon
 //
@@ -14,11 +13,9 @@ class CurrencyNetworkManager {
     // MARK: Inits
 
     // This init will permits to inject dependency for testing this class
-    init(currencySession: URLSession = URLSession(configuration: .default)) {
-        self.currencySession = currencySession
+    init(currencyNetworkService: NetworkService = NetworkService()) {
+        self.currencyNetworkService = currencyNetworkService
     }
-
-
 
     // MARK: Methods
 
@@ -52,17 +49,10 @@ class CurrencyNetworkManager {
         }
     }
 
+    // MARK: - Private Properties
 
-
-    // MARK: - Private
-
-    // MARK: Properties
-
-    private var currencySession: URLSession
-    private var task: URLSessionDataTask?
-
-    private let currencyNetworkService: NetworkService = NetworkService()
+    private var currencyNetworkService: NetworkService = NetworkService()
     private let currencyUrl =
-        URL(string: "http://data.fixer.io/api/latest?access_key=\(CURRENCY_KEY)&base=EUR&symbols=USD")!
+        URL(string: "http://data.fixer.io/api/latest?access_key=\(Constants.Keys.currencyKey)&base=EUR&symbols=USD")!
 
 }

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "timestamp": 1602692345,
+    "base": "EUR",
+    "date": "2020-10-14",
+    "rates": {
+        "INR": 1.17544
+    }
+}

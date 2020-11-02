@@ -1,4 +1,3 @@
-//swiftlint:disable vertical_whitespace
 //  NetworkService.swift
 //  Baluchon
 //
@@ -8,6 +7,12 @@
 import Foundation
 
 class NetworkService {
+    // MARK: - Private
+
+    // MARK: Properties
+
+    private var networkSession: URLSession
+
     // MARK: - Internal
 
     // MARK: Init
@@ -17,24 +22,17 @@ class NetworkService {
         self.networkSession = networkSession
     }
 
-
-
     // MARK: Methods
 
     /// Method get and send undecoded json data or error via callback
     func getNetworkResponse(with targetURL: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {
 
         // Avoid parallel network calls
-        task?.cancel()
+        var task: URLSessionDataTask?
         task = networkSession.dataTask(with: targetURL) { (data, response, error) in
 
             // Putting code execution in main thread to ensure coordianation with UI
             DispatchQueue.main.async {
-
-                // Ensure that network call return a not empty data, else we send an error via callback
-                guard let data = data else {
-                    return callback(.failure(.noData))
-                }
 
                 // Ensure that network call return an empty error, else we send an error via callback
                 guard error == nil else {
@@ -51,6 +49,11 @@ class NetworkService {
                     return callback(.failure(.wrongStatusCode))
                 }
 
+                // Ensure that network call return a not empty data, else we send an error via callback
+                guard let data = data else {
+                    return callback(.failure(.noData))
+                }
+
                 // Finally, if all conditions passed, we send uncoded data wia the callback
                 callback(.success(data))
 
@@ -58,13 +61,4 @@ class NetworkService {
         }
         task?.resume()
     }
-
-
-
-    // MARK: - Private
-
-    // MARK: Properties
-
-    private var networkSession: URLSession
-    private var task: URLSessionDataTask?
 }

@@ -1,4 +1,3 @@
-//swiftlint:disable vertical_whitespace
 //  ExchangeViewController.swift
 //  Baluchon
 //
@@ -10,8 +9,6 @@ import UIKit
 class CurrencyViewController: UIViewController {
     // MARK: - Internal
 
-
-
     // MARK: - Private
 
     // MARK: Properties
@@ -19,13 +16,10 @@ class CurrencyViewController: UIViewController {
     private let currencyNetworkManager = ServiceContainer.currencyNetworkManager
     private let alertManager = ServiceContainer.alertManager
 
-
     // MARK: IBOutlets
 
     @IBOutlet private weak var euroTextField: UITextField!
     @IBOutlet private weak var dollarLabel: UILabel!
-
-
 
     // MARK: Methods
 

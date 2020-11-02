@@ -3,14 +3,7 @@
         "lon": 2.58,
         "lat": 48.57
     },
-    "weather": [
-        {
-            "id": 803,
-            "main": "Clouds",
-            "description": "broken clouds",
-            "icon": "04d"
-        }
-    ],
+    "weather": [],
     "base": "stations",
     "main": {
         "temp": 13.37,
@@ -41,4 +34,5 @@
     "name": "Savigny-le-Temple",
     "cod": 200
 }
+
 
