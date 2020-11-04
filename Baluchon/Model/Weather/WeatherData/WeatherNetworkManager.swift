@@ -7,12 +7,15 @@
 import Foundation
 
 class WeatherNetworkManager {
+    // MARK: - PROPERTIES
+    private var weatherNetworkService: NetworkService = NetworkService()
+
+    // MARK: - FUNCTIONS
+    // MARK: Internal
     // This init will permits to inject dependency for testing this class
     init(weatherNetworkService: NetworkService = NetworkService()) {
         self.weatherNetworkService = weatherNetworkService
     }
-
-    // MARK: Functions
 
     /// Returns the actual weather for the selected city
     func getWeather(city: City, callback: @escaping (Result<Weather, NetworkError>) -> Void) {
@@ -41,10 +44,7 @@ class WeatherNetworkManager {
         }
     }
 
-    // MARK: - Private Properties
-    private var weatherNetworkService: NetworkService = NetworkService()
-
-    // MARK: Methods
+    // MARK: Private
     /// Converts raw data into Weather object
     private func createWeatherFromData(
         city: City, data: Data) -> Result<Weather, NetworkError> {

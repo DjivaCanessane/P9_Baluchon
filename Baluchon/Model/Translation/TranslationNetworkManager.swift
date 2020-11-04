@@ -8,17 +8,16 @@
 import Foundation
 
 class TranslationNetworkManager {
+    // MARK: - PROPERTIES
+    private var translationNetworkService: NetworkService = NetworkService()
+    private var textToTranslate: String = ""
 
-    // MARK: - Internal
-
-    // MARK: Inits
-
+    // MARK: - FUNCTIONS
+    // MARK: Internal
     // This init will permits to inject dependency for testing this class and send text to translate
     init(translationNetworkService: NetworkService = NetworkService()) {
         self.translationNetworkService = translationNetworkService
     }
-
-    // MARK: Methods
 
     func setTextToTranslate(text: String) {
         textToTranslate = text
@@ -60,10 +59,8 @@ class TranslationNetworkManager {
             }
         }
     }
-    // MARK: - Private
 
-    // MARK: Methods
-
+    // MARK: Private
     private func makeTranslationUrl() -> URL {
         let rawURL = String(
             format: "https://translation.googleapis.com/language/translate/v2?source=fr&target=en&format=text&key=%@",
@@ -76,10 +73,4 @@ class TranslationNetworkManager {
         translationUrl.queryItems?.append(URLQueryItem(name: "q", value: textToTranslate))
         return translationUrl.url!
     }
-
-    // MARK: Properties
-
-    private var translationNetworkService: NetworkService = NetworkService()
-    private var textToTranslate: String = ""
-
 }

@@ -8,19 +8,23 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
-    @IBOutlet weak var savignyIcon: UIImageView!
-    @IBOutlet weak var savignyTemperature: UILabel!
-    @IBOutlet weak var savignyDescription: UILabel!
-
-    @IBOutlet weak var newYorkIcon: UIImageView!
-    @IBOutlet weak var newYorkTemperature: UILabel!
-    @IBOutlet weak var newYorkDescription: UILabel!
-
+    // MARK: - PROPERTIES
     private let weatherNetworkManager = ServiceContainer.weatherNetworkManager
     private let weatherIconNetworkManager = ServiceContainer.weatherIconNetworkManager
     private let alertManager = ServiceContainer.alertManager
 
+    // MARK: - IBOUTLETS
+    // Savigny's outlets
+    @IBOutlet weak var savignyIcon: UIImageView!
+    @IBOutlet weak var savignyTemperature: UILabel!
+    @IBOutlet weak var savignyDescription: UILabel!
+
+    //NewYork's outlets
+    @IBOutlet weak var newYorkIcon: UIImageView!
+    @IBOutlet weak var newYorkTemperature: UILabel!
+    @IBOutlet weak var newYorkDescription: UILabel!
+
+    // MARK: - FUNCTIONS
     override func viewWillAppear(_ animated: Bool) {
         weatherNetworkManager.getWeather(city: .savignyLeTemple) { (result) in
             switch result {
@@ -75,6 +79,7 @@ class WeatherViewController: UIViewController {
         }
     }
 
+    /// Fetch data on thes views concerning NewYork
     private func displayNewYorkWeather(weather: Weather) {
         guard let newYorkIconData = weather.iconData else {
             return alertManager.showErrorAlert(
@@ -89,6 +94,7 @@ class WeatherViewController: UIViewController {
         newYorkDescription.text = weather.description
     }
 
+    /// Fetch data on thes views concerning Savigny
     private func displaySavignyWeather(weather: Weather) {
         guard let savignyIconData = weather.iconData else {
             return alertManager.showErrorAlert(

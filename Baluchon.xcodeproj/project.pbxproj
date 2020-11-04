@@ -271,8 +271,8 @@
 		E4CCE9CF252FA7EA0047414A /* Translation */ = {
 			isa = PBXGroup;
 			children = (
-				E44BCFDC25348C7B00C8B1F5 /* TranslationDataStruct.swift */,
 				E44BCFE125348CD800C8B1F5 /* TranslationNetworkManager.swift */,
+				E44BCFDC25348C7B00C8B1F5 /* TranslationDataStruct.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -280,8 +280,8 @@
 		E4CCE9D0252FA7F50047414A /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				E4CCE9D2252FA84D0047414A /* CurrencyDataStruct.swift */,
 				E4CCE9D7252FB9CF0047414A /* CurrencyNetworkManager.swift */,
+				E4CCE9D2252FA84D0047414A /* CurrencyDataStruct.swift */,
 			);
 			path = Currency;
 			sourceTree = "<group>";

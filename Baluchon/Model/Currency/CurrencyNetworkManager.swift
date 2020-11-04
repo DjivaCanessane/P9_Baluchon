@@ -7,17 +7,17 @@
 import Foundation
 
 class CurrencyNetworkManager {
+    // MARK: - PROPERTIES
+    private var currencyNetworkService: NetworkService = NetworkService()
+    private let currencyUrl =
+        URL(string: "http://data.fixer.io/api/latest?access_key=\(Constants.Keys.currencyKey)&base=EUR&symbols=USD")!
 
-    // MARK: - Internal
-
-    // MARK: Inits
-
+    // MARK: - FUNCTIONS
+    // MARK: Internal
     // This init will permits to inject dependency for testing this class
     init(currencyNetworkService: NetworkService = NetworkService()) {
         self.currencyNetworkService = currencyNetworkService
     }
-
-    // MARK: Methods
 
     /// Returns the actual currency exchange rate of EUR/USD via the callback
     func getCurrency(callback: @escaping (Result<Double, NetworkError>) -> Void) {
@@ -48,11 +48,4 @@ class CurrencyNetworkManager {
             }
         }
     }
-
-    // MARK: - Private Properties
-
-    private var currencyNetworkService: NetworkService = NetworkService()
-    private let currencyUrl =
-        URL(string: "http://data.fixer.io/api/latest?access_key=\(Constants.Keys.currencyKey)&base=EUR&symbols=USD")!
-
 }

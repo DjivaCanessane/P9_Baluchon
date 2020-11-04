@@ -60,9 +60,7 @@ class WeatherNetworkManagerTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    // MARK: - Private
-
-    // MARK: Methods
+    // MARK: - PRIVATE FUNCTIONS
     private func injectDependencyAndShouldGetError(
         sessionData: Data?,
         sessionResponse: HTTPURLResponse?,

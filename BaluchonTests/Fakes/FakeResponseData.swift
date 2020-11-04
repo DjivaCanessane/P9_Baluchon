@@ -9,18 +9,9 @@ import Foundation
 @testable import Baluchon
 
 class FakeResponseData {
-
-    // MARK: - Data
-    static func generateData(for ressource: String) -> Data? {
-        let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: ressource, withExtension: "json")!
-        return try? Data(contentsOf: url)
-    }
-
+    // MARK: - DATA
     static let incorrectData = "erreur".data(using: .utf8)!
-
     static let imageData = "image".data(using: .utf8)!
-
     static let weather = Weather(
         city: .savignyLeTemple,
         description: "broken clouds",
@@ -29,7 +20,13 @@ class FakeResponseData {
         iconData: nil
     )
 
-    // MARK: - Response
+    static func generateData(for ressource: String) -> Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: ressource, withExtension: "json")!
+        return try? Data(contentsOf: url)
+    }
+
+    // MARK: - RESPONSE
     static let responseOK = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 200, httpVersion: nil, headerFields: [:])!
@@ -38,7 +35,7 @@ class FakeResponseData {
         url: URL(string: "https://openclassrooms.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
 
-    // MARK: - Error
+    // MARK: - ERROR
     class FakeError: Error {}
     static let error = FakeError()
 }

@@ -59,9 +59,7 @@ class TranslationNetworkManagerTestCase: XCTestCase {
         XCTAssertEqual(translationNetworkManager.getTextToTranslate(), "Coucou")
     }
 
-    // MARK: - Private
-
-    // MARK: Methods
+    // MARK: - PRIVATE FUNCTIONS
     private func injectDependencyAndShouldGetError(
         sessionData: Data?,
         sessionResponse: HTTPURLResponse?,

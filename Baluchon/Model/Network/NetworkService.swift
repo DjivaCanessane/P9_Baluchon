@@ -7,22 +7,15 @@
 import Foundation
 
 class NetworkService {
-    // MARK: - Private
-
-    // MARK: Properties
-
+    // MARK: - PROPERTIES
     private var networkSession: URLSession
 
-    // MARK: - Internal
-
-    // MARK: Init
-
+    // MARK: - FUNCTIONS
+    // MARK: Internal
     // This init will permits to inject dependency for testing this class
     init(networkSession: URLSession = URLSession(configuration: .default)) {
         self.networkSession = networkSession
     }
-
-    // MARK: Methods
 
     /// Method get and send undecoded json data or error via callback
     func getNetworkResponse(with targetURL: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {

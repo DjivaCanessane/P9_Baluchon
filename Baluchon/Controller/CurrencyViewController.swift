@@ -7,22 +7,15 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    // MARK: - Internal
-
-    // MARK: - Private
-
-    // MARK: Properties
-
+    // MARK: - PROPERTIES
     private let currencyNetworkManager = ServiceContainer.currencyNetworkManager
     private let alertManager = ServiceContainer.alertManager
 
-    // MARK: IBOutlets
-
+    // MARK: - IBOUTLETS
     @IBOutlet private weak var euroTextField: UITextField!
     @IBOutlet private weak var dollarLabel: UILabel!
 
-    // MARK: Methods
-
+    // MARK: - FUNCTIONS
     /// Update dollarLabel with the converted amount  from euroTextField
     @IBAction private func convertEuroToDollar(_ sender: UIButton) {
 

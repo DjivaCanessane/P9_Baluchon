@@ -8,13 +8,15 @@
 import UIKit
 
 class TranslationViewController: UIViewController {
-
-    @IBOutlet private weak var textToTranslateView: UITextView!
-    @IBOutlet private  weak var translatedTextView: UITextView!
-
+    // MARK: - PROPERTIES
     private let alertManager = ServiceContainer.alertManager
     private let translationNetworkManager = ServiceContainer.translationNetworkManager
 
+    // MARK: - IBOUTLETS
+    @IBOutlet private weak var textToTranslateView: UITextView!
+    @IBOutlet private  weak var translatedTextView: UITextView!
+
+    // MARK: - FUNCTIONS
     @IBAction func translate(_ sender: UIButton) {
         let textToTranslate: String = textToTranslateView.text
         translationNetworkManager.setTextToTranslate(text: textToTranslate)
