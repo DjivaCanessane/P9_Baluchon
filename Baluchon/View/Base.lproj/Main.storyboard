@@ -269,7 +269,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsN-zz-ayn">
                                         <rect key="frame" x="0.0" y="138.5" width="304" height="138"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESU-ZJ-ZVq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Insert amount then press convert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESU-ZJ-ZVq">
                                                 <rect key="frame" x="0.0" y="0.0" width="267" height="138"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -286,7 +286,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEH-JE-Fof">
                                         <rect key="frame" x="0.0" y="276.5" width="304" height="138.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <state key="normal" title="Convertir € -&gt; $"/>
+                                        <state key="normal" title="Convert € to $"/>
                                         <connections>
                                             <action selector="convertEuroToDollar:" destination="erK-gI-vO7" eventType="touchUpInside" id="aKp-lL-mBY"/>
                                         </connections>

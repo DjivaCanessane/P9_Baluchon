@@ -43,9 +43,11 @@ class CurrencyViewController: UIViewController {
 
                 // Calculate dollar amount from euro amount
                 let dollarAmount: Double = euroAmountDouble * rate
+                // Round dollarAmount to cents
+                let roundedDollarAmount: Double = Double(round(dollarAmount * 100)/100)
 
                 // Update dollarLabel
-                self.dollarLabel.text = "\(dollarAmount)"
+                self.dollarLabel.text = "\(roundedDollarAmount)"
 
             // Case of failure, we show an error alert
             case .failure(let error):
