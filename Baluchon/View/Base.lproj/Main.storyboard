@@ -70,7 +70,7 @@
                             <outletCollection property="gestureRecognizers" destination="Ky7-As-krs" appends="YES" id="2vf-bY-nar"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Translate" selectedImage="arrow.up.right.and.arrow.down.left.rectangle.fill" catalog="system" id="cip-Qs-oBb"/>
+                    <tabBarItem key="tabBarItem" title="Translate" id="cip-Qs-oBb"/>
                     <connections>
                         <outlet property="textToTranslateView" destination="hzd-X3-6Cd" id="NVy-TM-tlW"/>
                         <outlet property="translatedTextView" destination="3GG-jw-ffq" id="ajC-Ee-can"/>
@@ -186,7 +186,7 @@
                             <constraint firstItem="jAT-ps-UZh" firstAttribute="trailing" secondItem="ASD-mn-R1X" secondAttribute="trailing" constant="16" id="oa9-pI-Kc3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weater" selectedImage="cloud.sun.fill" catalog="system" id="llm-de-50j"/>
+                    <tabBarItem key="tabBarItem" title="Weater" id="llm-de-50j"/>
                     <connections>
                         <outlet property="newYorkDescription" destination="prl-3D-Hka" id="CaX-AA-4ve"/>
                         <outlet property="newYorkIcon" destination="Ttu-Ub-q01" id="hTy-eF-WWg"/>
@@ -308,7 +308,7 @@
                             <outletCollection property="gestureRecognizers" destination="AFV-au-Ggt" appends="YES" id="lga-vp-VRf"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Currency" selectedImage="dollarsign.circle.fill" catalog="system" id="ShO-1a-dw0"/>
+                    <tabBarItem key="tabBarItem" title="Currency" id="ShO-1a-dw0"/>
                     <navigationItem key="navigationItem" id="wpT-dW-ATv"/>
                     <connections>
                         <outlet property="dollarLabel" destination="ESU-ZJ-ZVq" id="lA3-hp-xfi"/>
@@ -326,9 +326,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.up.right.and.arrow.down.left.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="cloud.sun.fill" catalog="system" width="128" height="93"/>
-        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
