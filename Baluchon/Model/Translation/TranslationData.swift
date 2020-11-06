@@ -1,5 +1,5 @@
 //
-//  TranslationDataStruct.swift
+//  TranslationData.swift
 //  Baluchon
 //
 //  Created by Samo Mpkamou on 12/10/2020.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Translation
-struct TranslationDataStruct: Codable {
+struct TranslationData: Codable {
     let data: DataClass
 }
 

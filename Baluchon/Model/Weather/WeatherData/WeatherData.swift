@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Weather
-struct WeatherDataStruct: Codable {
+struct WeatherData: Codable {
     let weather: [WeatherElement]
     let main: Main
 }
