@@ -44,7 +44,7 @@ class TranslationNetworkManager {
 
                 /* Decode the data according to type Translation,
                 if not we throw an error via the callback to TranslationViewController */
-                guard let decodedData = try? JSONDecoder().decode(TranslationDataStruct.self, from: data) else {
+                guard let decodedData = try? JSONDecoder().decode(TranslationData.self, from: data) else {
                     return callback(.failure(.canNotDecode))
                 }
 

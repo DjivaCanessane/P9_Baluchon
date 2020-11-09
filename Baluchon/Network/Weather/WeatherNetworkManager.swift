@@ -50,7 +50,7 @@ class WeatherNetworkManager {
         city: City, data: Data) -> Result<Weather, NetworkError> {
         /* Decode the data according to type Weather,
          if not we throw an error via the callback to WeatherViewController */
-        guard let weatherData = try? JSONDecoder().decode(WeatherDataStruct.self, from: data) else {
+        guard let weatherData = try? JSONDecoder().decode(WeatherData.self, from: data) else {
             return .failure(.canNotDecode)
         }
 
